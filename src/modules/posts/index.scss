@@ -1,0 +1,54 @@
+@import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+.fade_in {
+  animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+   transform: translateX(500px);
+   opacity: 0;
+  }
+
+  100% {
+   transform: translateX(0px);
+   opacity: 1;
+  }
+}
+
+.carousel {
+  &.carousel-slider {
+    .carousel-status {
+      right: 30px;
+    }
+
+    .control-arrow {
+      position: fixed;
+      background: rgb(77, 121, 255);
+      z-index: 10;
+      height: 150px;
+      top: 50%;
+      transform: translateY(-50%);
+  
+      &:hover {
+        background: rgba(77, 121, 255, 0.5);
+      }
+
+      &:focus {
+        background: rgb(77, 121, 255);
+      }
+
+      &.control-prev {
+        left: 30px;
+        border-bottom-right-radius: 50%;
+        border-top-right-radius: 50%;
+      }
+
+      &.control-next {
+        right: 30px;
+        border-bottom-left-radius: 50%;
+        border-top-left-radius: 50%;
+      }
+    }
+  }
+}
