@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { RootState } from '../../store';
-import { getPostIndexById } from './actions';
-import { Post, PostsState, CommentPayloadDone } from './types';
+import { RootState } from 'store';
+import { getPostIndexById } from 'redux/posts/actions';
+import { Post, PostsState, CommentPayloadDone } from 'redux/posts/types';
 
 export const initialState: PostsState = {
   data: [],

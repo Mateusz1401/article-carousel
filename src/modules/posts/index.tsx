@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import Loader from '../../components/loader';
-import { useAppDispatch } from '../../hooks/redux';
-import { getAllPosts } from '../../redux/posts/actions';
-import { Post } from '../../redux/posts/types';
-import CarouselItem from './components/carousel-item';
-import { usePosts } from './hooks/use-posts';
+import Loader from 'components/loader';
+import { useAppDispatch } from 'hooks/redux';
+import { getAllPosts } from 'redux/posts/actions';
+import { Post } from 'redux/posts/types';
+import CarouselItem from 'modules/posts/components/carousel-item';
+import { usePosts } from 'modules/posts/hooks/use-posts';
 import './index.scss';
 
 const Posts: FC = () => {
@@ -28,6 +28,7 @@ const Posts: FC = () => {
           onChange={handleSlideChange}
           showIndicators={false}
           showThumbs={false}
+          infiniteLoop
         >
           {renderPosts()}
         </Carousel>

@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
 import { Box } from '@mui/material';
-import DOMPurify from 'dompurify';
-import { Comment } from '../../../../redux/posts/types';
-import { CommentBox, CommentName, CommentEmail, CommentBody } from './styled';
+import { Comment } from 'redux/posts/types';
+import {
+  CommentBox,
+  CommentName,
+  CommentEmail,
+  CommentBody,
+} from 'modules/posts/components/comment-item/styled';
 
 type ComponentProps = {
   comment: Comment;
@@ -14,18 +18,14 @@ const CommentItem: FC<ComponentProps> = ({ comment }) => (
       sx={{
         display: 'flex',
         justifyContent: 'space-between',
+        marginBottom: '20px',
         flexDirection: { xs: 'column', md: 'row' },
       }}
     >
       <CommentName>{comment.name}</CommentName>
       <CommentEmail>{comment.email}</CommentEmail>
     </Box>
-    <br />
-    <CommentBody
-      component={'div'}
-      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.body) }}
-    />
-    <br />
+    <CommentBody>{comment.body}</CommentBody>
   </CommentBox>
 );
 

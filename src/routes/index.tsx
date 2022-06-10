@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PostsPage from '../pages/posts';
-import NotFoundPage from '../pages/not-found';
-import { Navigation } from './navigation';
+import PostsPage from 'pages/posts';
+import NotFoundPage from 'pages/not-found';
+import { Navigation } from 'routes/navigation';
 
 const Router = () => (
   <BrowserRouter>

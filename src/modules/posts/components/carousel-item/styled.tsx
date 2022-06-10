@@ -12,10 +12,13 @@ export const PostTitle = styled(Box)<BoxProps>(() => ({
   fontWeight: '600',
   textAlign: 'center',
   textTransform: 'uppercase',
+  marginBottom: '20px',
 }));
 
 export const PostBody = styled(Box)<BoxProps>(() => ({
   fontSize: '18px',
+  marginBottom: '20px',
+  whiteSpace: 'pre-line',
 }));
 
 export const CommentsBox = styled(Box)<BoxProps>(() => ({

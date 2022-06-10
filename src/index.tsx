@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-import Loader from './components/loader';
-import reportWebVitals from './reportWebVitals';
-import Router from './routes';
-import { store } from './store';
+import Loader from 'components/loader';
+import reportWebVitals from 'reportWebVitals';
+import Router from 'routes';
+import { store } from 'store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 

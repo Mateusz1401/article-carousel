@@ -1,8 +1,12 @@
 import React, { FC, memo } from 'react';
-import DOMPurify from 'dompurify';
-import { Comment, Post } from '../../../../redux/posts/types';
-import { PostBody, ItemBoxStyled, PostTitle, CommentsBox } from './styled';
-import CommentItem from '../comment-item';
+import { Comment, Post } from 'redux/posts/types';
+import {
+  PostBody,
+  ItemBoxStyled,
+  PostTitle,
+  CommentsBox,
+} from 'modules/posts/components/carousel-item/styled';
+import CommentItem from 'modules/posts/components/comment-item';
 
 type ComponentProps = {
   post: Post;
@@ -12,9 +16,7 @@ type ComponentProps = {
 const CarouselItem: FC<ComponentProps> = ({ post: { title, body, id, comments }, activeSlide }) => (
   <ItemBoxStyled>
     <PostTitle>{`${id}. ${title}`}</PostTitle>
-    <br />
-    <PostBody component={'div'} dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(body) }} />
-    <br />
+    <PostBody>{body}</PostBody>
     {comments ? (
       <CommentsBox className={activeSlide + 1 === id ? 'fade_in' : ''}>
         {comments?.map((comment: Comment) => (

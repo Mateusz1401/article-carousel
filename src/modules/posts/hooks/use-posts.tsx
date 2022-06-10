@@ -1,21 +1,31 @@
-import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { getPostComments } from '../../../redux/posts/actions';
-import { Post } from '../../../redux/posts/types';
+import { useState, ReactNode, ReactElement } from 'react';
+import { useAppDispatch, useAppSelector } from 'hooks/redux';
+import { getPostComments } from 'redux/posts/actions';
+import { Post } from 'redux/posts/types';
 
 export const usePosts = () => {
   const dispatch = useAppDispatch();
   const [activeSlide, setActiveSlide] = useState<number>(0);
   const { data, loading } = useAppSelector((state) => state.posts);
 
-  const handleSlideChange = (slide: number) => {
-    setActiveSlide(slide);
+  const handleSlideChange = (slide: number, item: ReactNode) => {
+    if (slide !== activeSlide) {
+      const post: Post = (item as ReactElement).props.post;
+      setActiveSlide(slide);
 
-    const nextPostCommentsId = slide + 2;
-    const foundPost = data.find((post: Post) => post.id === nextPostCommentsId);
+      const nextPostCommentsId = post.id + 1 <= 100 ? post.id + 1 : 1;
+      const prevPostCommentsId = post.id - 1 !== 0 ? post.id - 1 : 100;
+      const foundPostNext = data.find((post: Post) => post.id === nextPostCommentsId);
+      const foundPostPrev = data.find((post: Post) => post.id === prevPostCommentsId);
 
-    if (slide === activeSlide || foundPost?.comments) return;
-    dispatch(getPostComments(nextPostCommentsId));
+      if (foundPostNext) {
+        if (!foundPostNext.comments) dispatch(getPostComments(nextPostCommentsId));
+      }
+
+      if (foundPostPrev) {
+        if (!foundPostPrev.comments) dispatch(getPostComments(prevPostCommentsId));
+      }
+    }
   };
 
   return {

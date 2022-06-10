@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ButtonStyled } from './styled';
+import { ButtonStyled } from 'components/button/styled';
 
 type ComponentProps = {
   label: string;

@@ -1,5 +1,5 @@
 import React, { FC, memo, ReactNode } from 'react';
-import { PageStyled } from './styled';
+import { PageStyled } from 'components/page/styled';
 
 type ComponentPops = {
   children: ReactNode;

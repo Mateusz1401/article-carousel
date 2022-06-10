@@ -1,5 +1,5 @@
 import { Button, ButtonProps, styled } from '@mui/material';
-import { paletteColors } from '../../theme/palette';
+import { paletteColors } from 'theme/palette';
 
 export const ButtonStyled = styled(Button)<ButtonProps>(() => ({
   background: paletteColors.accent1,
